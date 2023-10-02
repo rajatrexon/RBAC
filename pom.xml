@@ -5,101 +5,113 @@
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>3.1.3</version>
+		<version>3.1.1</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.esq.rbac</groupId>
-	<artifactId>rbac-lib-restweb</artifactId>
+	<artifactId>rbac-service</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>rbac-lib-restweb</name>
-	<description>Demo project for Spring Boot</description>
+	<name>rbac-service</name>
+	<description>RBAC Service</description>
 	<properties>
 		<java.version>17</java.version>
+		<com.esq.version>3.4.5</com.esq.version>
+		<com.esq.rbac.version>3.6.46</com.esq.rbac.version>
+		<com.esq.platform.version>1.4</com.esq.platform.version>
 	</properties>
+
 	<dependencies>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-webflux</artifactId>
-		</dependency>
-		<!-- https://mvnrepository.com/artifact/io.projectreactor/reactor-core -->
-		<dependency>
-			<groupId>io.projectreactor</groupId>
-			<artifactId>reactor-core</artifactId>
-		</dependency>
-
-		<dependency>
-			<groupId>joda-time</groupId>
-			<artifactId>joda-time</artifactId>
-			<version>2.12.5</version>
-		</dependency>
-
-		<dependency>
-			<groupId>commons-validator</groupId>
-			<artifactId>commons-validator</artifactId>
-			<version>1.7</version>
+			<artifactId>spring-boot-starter-data-jpa</artifactId>
 		</dependency>
 		<dependency>
-			<groupId>org.apache.commons</groupId>
-			<artifactId>commons-lang3</artifactId>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-validation</artifactId>
+	  </dependency>
+		<dependency>
+			<groupId>org.freemarker</groupId>
+			<artifactId>freemarker</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.codehaus.groovy</groupId>
+			<artifactId>groovy-json</artifactId>
+			<version>2.2.2</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-ldap</artifactId>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-security</artifactId>
 		</dependency>
+<!--		<dependency>-->
+<!--			<groupId>org.springframework.mobile</groupId>-->
+<!--			<artifactId>spring-mobile-device</artifactId>-->
+<!--		</dependency>-->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-web</artifactId>
+			<artifactId>spring-boot-devtools</artifactId>
+			<scope>runtime</scope>
+			<optional>true</optional>
 		</dependency>
 		<dependency>
-			<groupId>org.springframework.security</groupId>
-			<artifactId>spring-security-config</artifactId>
+			<groupId>org.springframework.ldap</groupId>
+			<artifactId>spring-ldap-core</artifactId>
 		</dependency>
+<!--		<dependency>-->
+<!--			<groupId>io.swagger</groupId>-->
+<!--			<artifactId>swagger-jaxrs</artifactId>-->
+<!--			<version>1.6.2</version>-->
+<!--		</dependency>-->
+		<!-- com.esq dependencies -->
+<!--		<dependency>-->
+<!--			<groupId>com.esq</groupId>-->
+<!--			<artifactId>esq-common</artifactId>-->
+<!--			<version>${com.esq.version}</version>-->
+<!--		</dependency>-->
+<!--		<dependency>-->
+<!--			<groupId>com.esq</groupId>-->
+<!--			<artifactId>esq-common-report</artifactId>-->
+<!--			<version>${com.esq.version}</version>-->
+<!--		</dependency>-->
+		<!--		<dependency>-->
+		<!--			<groupId>com.esq</groupId>-->
+		<!--			<artifactId>esq-common-report-admin</artifactId>-->
+		<!--			<version>${com.esq.version}</version>-->
+		<!--		</dependency>-->
+<!--		<dependency>-->
+<!--			<groupId>com.esq.rbac</groupId>-->
+<!--			<artifactId>rbac-lib-dal</artifactId>-->
+<!--			<version>${com.esq.rbac.version}</version>-->
+<!--		</dependency>-->
 		<dependency>
-			<groupId>org.springframework.security</groupId>
-			<artifactId>spring-security-cas</artifactId>
-			<scope>provided</scope>
-			<exclusions>
-				<exclusion>
-					<artifactId>commons-logging</artifactId>
-					<groupId>commons-logging</groupId>
-				</exclusion>
-			</exclusions>
+			<groupId>com.esq</groupId>
+			<artifactId>esq-common-security</artifactId>
+			<version>${com.esq.version}</version>
 		</dependency>
-		<!--ESQ Dependencies-->
+<!--		<dependency>-->
+<!--			<groupId>com.esq</groupId>-->
+<!--			<artifactId>esq-jetty-dependency</artifactId>-->
+<!--			<version>${com.esq.version}</version>-->
+<!--		</dependency>-->
+<!--		<dependency>-->
+<!--			<groupId>com.esq</groupId>-->
+<!--			<artifactId>esq-jetty-all</artifactId>-->
+<!--			<type>pom</type>-->
+<!--			<version>${com.esq.version}</version>-->
+<!--		</dependency>-->
 		<dependency>
-			<groupId>jakarta.servlet</groupId>
-			<artifactId>jakarta.servlet-api</artifactId>
-			<scope>provided</scope>
-		</dependency>
-		<dependency>
-			<groupId>jakarta.ws.rs</groupId>
-			<artifactId>jakarta.ws.rs-api</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>jakarta.validation</groupId>
-			<artifactId>jakarta.validation-api</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-web</artifactId>
-		</dependency>
-		<!-- https://mvnrepository.com/artifact/org.bouncycastle/bcprov-jdk15on -->
-		<dependency>
-			<groupId>org.bouncycastle</groupId>
-			<artifactId>bcprov-jdk15on</artifactId>
-			<version>1.70</version>
-		</dependency>
-		<dependency>
-			<groupId>commons-configuration</groupId>
-			<artifactId>commons-configuration</artifactId>
-			<version>1.10</version>
+			<groupId>com.esq</groupId>
+			<artifactId>esq-tools</artifactId>
+			<version>${com.esq.version}</version>
 		</dependency>
 
 		<dependency>
-			<groupId>org.apache.httpcomponents</groupId>
-			<artifactId>httpclient</artifactId>
-			<version>4.5.13</version>
-			<scope>compile</scope>
+			<groupId>com.microsoft.sqlserver</groupId>
+			<artifactId>mssql-jdbc</artifactId>
+			<scope>runtime</scope>
 		</dependency>
 		<dependency>
 			<groupId>org.projectlombok</groupId>
@@ -111,13 +123,197 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
-		<!-- https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-devtools -->
+<!--		<dependency>-->
+<!--			<groupId>com.google.guava</groupId>-->
+<!--			<artifactId>guava</artifactId>-->
+<!--			<version>30.1-jre</version>-->
+<!--		</dependency>-->
+
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-devtools</artifactId>
+			<artifactId>spring-boot-testcontainers</artifactId>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.testcontainers</groupId>
+			<artifactId>junit-jupiter</artifactId>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.testcontainers</groupId>
+			<artifactId>mssqlserver</artifactId>
+			<scope>test</scope>
 		</dependency>
 
+		<!-- https://mvnrepository.com/artifact/jakarta.validation/jakarta.validation-api -->
+		<dependency>
+			<groupId>jakarta.validation</groupId>
+			<artifactId>jakarta.validation-api</artifactId>
+		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/commons-validator/commons-validator -->
+		<dependency>
+			<groupId>commons-validator</groupId>
+			<artifactId>commons-validator</artifactId>
+			<version>1.7</version>
+		</dependency>
+
+
+		<dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-collections4</artifactId>
+			<version>4.4</version>
+		</dependency>
+
+		<dependency>
+			<groupId>jakarta.ws.rs</groupId>
+			<artifactId>jakarta.ws.rs-api</artifactId>
+		</dependency>
+
+
+		<!-- commons dependencies-->
+
+		<dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-lang3</artifactId>
+		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-databind -->
+		<dependency>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-databind</artifactId>
+		</dependency>
+
+
+		<!-- https://mvnrepository.com/artifact/commons-configuration/commons-configuration -->
+		<dependency>
+			<groupId>commons-configuration</groupId>
+			<artifactId>commons-configuration</artifactId>
+			<version>1.10</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.esq.platform</groupId>
+			<artifactId>esq-platform-base</artifactId>
+			<version>${com.esq.platform.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.esq.platform</groupId>
+			<artifactId>esq-platform-licensing</artifactId>
+			<version>${com.esq.platform.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>commons-io</groupId>
+			<artifactId>commons-io</artifactId>
+			<version>2.11.0</version>
+		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/commons-codec/commons-codec -->
+		<dependency>
+			<groupId>commons-codec</groupId>
+			<artifactId>commons-codec</artifactId>
+			<version>1.16.0</version>
+		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/joda-time/joda-time -->
+		<dependency>
+			<groupId>joda-time</groupId>
+			<artifactId>joda-time</artifactId>
+			<version>2.12.5</version>
+		</dependency>
+<!--        <dependency>-->
+<!--            <groupId>com.esq.rbac</groupId>-->
+<!--            <artifactId>rbac-service</artifactId>-->
+<!--            <version>0.0.1-SNAPSHOT</version>-->
+<!--        </dependency>-->
+
+		<!-- https://mvnrepository.com/artifact/jakarta.servlet/jakarta.servlet-api -->
+		<dependency>
+			<groupId>jakarta.servlet</groupId>
+			<artifactId>jakarta.servlet-api</artifactId>
+			<scope>provided</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>net.sf.supercsv</groupId>
+			<artifactId>super-csv-dozer</artifactId>
+			<version>2.4.0</version>
+		</dependency>
+
+		<!-- -->
+
+		<!-- https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-web -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-web</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-jersey</artifactId>
+			<version>3.1.1</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.google.guava</groupId>
+			<artifactId>guava</artifactId>
+			<version>30.1-jre</version>
+		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/com.google.code.gson/gson -->
+		<dependency>
+			<groupId>com.google.code.gson</groupId>
+			<artifactId>gson</artifactId>
+			<version>2.10.1</version>
+		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/commons-httpclient/commons-httpclient -->
+		<dependency>
+			<groupId>commons-httpclient</groupId>
+			<artifactId>commons-httpclient</artifactId>
+			<version>3.1</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.codehaus.groovy</groupId>
+			<artifactId>groovy</artifactId>
+			<version>3.0.12</version>
+		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/org.apache.pdfbox/pdfbox -->
+		<dependency>
+			<groupId>org.apache.pdfbox</groupId>
+			<artifactId>pdfbox</artifactId>
+			<version>2.0.3</version>
+		</dependency>
+
+
+		<!-- https://mvnrepository.com/artifact/org.apache.xmlgraphics/fop -->
+		<dependency>
+			<groupId>org.apache.xmlgraphics</groupId>
+			<artifactId>fop</artifactId>
+			<version>1.0</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springdoc</groupId>
+			<artifactId>springdoc-openapi-starter-webmvc-ui</artifactId>
+			<version>2.2.0</version>
+		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/io.swagger.core.v3/swagger-annotations -->
+		<dependency>
+			<groupId>io.swagger.core.v3</groupId>
+			<artifactId>swagger-annotations</artifactId>
+			<version>2.2.15</version>
+		</dependency>
+
+
 	</dependencies>
+
+
 
 	<build>
 		<plugins>
@@ -125,6 +321,7 @@
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 				<configuration>
+					<mainClass>com.esq.rbac.service.RbacLibDalApplication</mainClass>
 					<excludes>
 						<exclude>
 							<groupId>org.projectlombok</groupId>
@@ -133,7 +330,52 @@
 					</excludes>
 				</configuration>
 			</plugin>
+
+<!--Groovy plugin's -->
+			<plugin>
+				<groupId>org.codehaus.gmavenplus</groupId>
+				<artifactId>gmavenplus-plugin</artifactId>
+				<version>1.9.0</version>
+				<executions>
+					<execution>
+						<goals>
+							<goal>addSources</goal>
+							<goal>addTestSources</goal>
+							<goal>generateStubs</goal>
+							<goal>compile</goal>
+							<goal>generateTestStubs</goal>
+							<goal>compileTests</goal>
+							<goal>removeStubs</goal>
+							<goal>removeTestStubs</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+
+<!--			Configuration of the Source directories -->
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>build-helper-maven-plugin</artifactId>
+				<version>3.2.0</version>
+				<executions>
+					<execution>
+						<id>add-groovy-source</id>
+						<phase>generate-sources</phase>
+						<goals>
+							<goal>add-source</goal>
+						</goals>
+						<configuration>
+							<sources>
+								<source>src/main/java/com/esq/rbac/service/groovy</source>
+							</sources>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+
+
 		</plugins>
+
 	</build>
 
 </project>
